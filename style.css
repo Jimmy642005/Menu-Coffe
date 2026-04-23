@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Special+Elite&family=Montserrat:wght@300;600&display=swap');
+
+/* Paleta de Colores:
+   Fondo: #e6d8c1 (Crema)
+   Tinta: #2c2c2c (Casi negro)
+   Acento: #8b5e83 (Vino/Floral)
+*/
+
+:root {
+    --bg-color: #e6d8c1;
+    --ink-color: #2c2c2c;
+    --accent-color: #8b5e83;
+}
+
+body {
+    background-color: #d1c1a8; /* Un tono más oscuro para resaltar el papel */
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png"); /* Textura de papel */
+    display: flex;
+    justify-content: center;
+    padding: 50px 20px;
+    margin: 0;
+}
+
+/* El Contenedor del Menú (La Hoja) */
+.menu-container {
+    background-color: var(--bg-color);
+    max-width: 700px;
+    width: 100%;
+    padding: 60px;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.2);
+    position: relative;
+    border: 1px solid #c5b59a;
+}
+
+/* El Marco Interior de la imagen */
+.menu-container::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    border: 2px solid var(--ink-color);
+    pointer-events: none;
+}
+
+/* Encabezado Estilo Vintage */
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    margin: 0;
+    letter-spacing: 12px;
+    color: #fff; /* Blanco como en la imagen */
+    text-shadow: 2px 2px 0px var(--ink-color);
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.5rem;
+    color: var(--ink-color);
+    margin-top: -10px;
+}
+
+/* Estilo de la Tabla */
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--ink-color);
+}
+
+.menu-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-bottom: 15px;
+}
+
+.item-name {
+    font-family: 'Special Elite', cursive; /* Estilo máquina de escribir */
+    font-size: 1.1rem;
+    text-align: left;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Puntos conectores */
+.item-name::after {
+    content: " .....................................................................";
+    letter-spacing: 4px;
+    opacity: 0.5;
+}
+
+.price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-align: right;
+    padding-left: 15px;
+    width: 60px;
+}
+
+/* Sección de Extras */
+.extras {
+    margin-top: 50px;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.extras h3 {
+    letter-spacing: 5px;
+    border-bottom: 2px solid var(--ink-color);
+    display: inline-block;
+    padding: 0 30px 5px;
+}
+
+.extras-list {
+    font-family: 'Special Elite', cursive;
+    margin-top: 15px;
+    line-height: 1.8;
+}
+
+/* Detalles decorativos (Flores) */
+.flower {
+    position: absolute;
+    width: 80px;
+    opacity: 0.7;
+    z-index: 10;
+}
+
+.top-left { top: -10px; left: -10px; transform: rotate(-15deg); }
