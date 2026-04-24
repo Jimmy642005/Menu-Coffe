@@ -1,4 +1,4 @@
-/* 1. RESET PARA CONTROL TOTAL */
+/* Configuración General */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,121 +6,140 @@
 }
 
 body {
-    background-color: #d1c1a8;
+    background-color: #d7c7ac; /* Color beige del fondo */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c2c2c;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 10px;
 }
 
-/* 2. CONTENEDOR PRINCIPAL FLEXIBLE */
-.menu-page {
-    background-color: #e6d8c1;
+.menu-container {
+    background-color: #e5d9c5;
     width: 100%;
-    max-width: 360px; /* Tamaño ideal para cualquier celular */
-    padding: 15px;
-    border: 1px solid #c5b59a;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-}
-
-.inner-border {
+    max-width: 500px; /* Tamaño ideal para móvil */
     border: 2px solid #2c2c2c;
-    padding: 15px;
-    width: 100%;
+    padding: 20px;
+    position: relative;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
 
-/* 3. CABECERA */
-header {
+/* Encabezado */
+.header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 3rem;
-    color: white;
-    text-shadow: 2px 2px 0 #2c2c2c;
-    letter-spacing: 5px;
+.logo img {
+    width: 80px;
+    border-radius: 50%;
 }
 
-/* 4. LA TABLA (EL ARREGLO REAL) */
-.menu-table {
-    width: 100%;
-    border-collapse: collapse;
-    table-layout: fixed; /* OBLIGA a respetar los anchos que daremos */
-}
-
-/* Definimos anchos específicos para que nada se salga */
-.menu-table th:nth-child(1), 
-.menu-table td:nth-child(1) { width: 45%; } /* Nombre */
-.menu-table th:nth-child(2), 
-.menu-table td:nth-child(2) { width: 18%; } /* Hot 12 */
-.menu-table th:nth-child(3), 
-.menu-table td:nth-child(3) { width: 18%; } /* Hot 16 */
-.menu-table th:nth-child(4), 
-.menu-table td:nth-child(4) { width: 19%; } /* Frio 16 */
-
-/* Encabezados muy pequeños para que quepan */
-.menu-table th {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.55rem; /* Reducido para que no empuje */
-    text-align: right;
-    vertical-align: bottom;
-    padding-bottom: 5px;
-    text-transform: uppercase;
-}
-
-.item-row td {
-    padding: 8px 0;
-    font-size: 0.75rem;
-}
-
-/* Nombre con puntos que NO empujan */
-.item-name {
-    font-family: 'Special Elite', cursive;
-    display: flex;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.item-name::after {
-    content: "...................................................";
-    opacity: 0.2;
-    margin-left: 3px;
-}
-
-/* Precios alineados */
-.price {
-    font-family: 'Montserrat', sans-serif;
-    text-align: right;
+.tagline {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
     font-weight: bold;
 }
 
-/* 5. SECCIÓN DE EXTRAS ADAPTADA */
-.extras-section {
-    margin-top: 30px;
+h1 {
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+    margin: 10px 0;
+    font-weight: 300;
+}
+
+.motto {
+    font-style: italic;
+    font-family: 'Times New Roman', serif;
+}
+
+/* Tabla de Precios */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+th {
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.text-center { text-align: center; }
+
+.sub-header th {
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+td {
+    padding: 6px 0;
+    border-bottom: 1px dotted #a89a85;
+    text-transform: uppercase;
+}
+
+td:not(:first-child) {
     text-align: center;
-    font-family: 'Special Elite', cursive;
+    font-weight: bold;
 }
 
-.extras-section h3 {
-    border-bottom: 1.5px solid #2c2c2c;
-    margin-bottom: 10px;
-    font-size: 1rem;
-    display: inline-block;
+/* Extras y Esencias */
+.divider {
+    margin: 25px 0;
+    border: 0;
+    border-top: 1px solid #2c2c2c;
 }
 
-.esencias-list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 5px;
-    font-size: 0.65rem;
+h3 {
+    text-align: center;
+    letter-spacing: 2px;
     margin-bottom: 15px;
+    font-size: 1.1rem;
 }
 
-.extras-prices {
+.esencias-grid {
+    display: flex;
+    justify-content: space-around;
     font-size: 0.8rem;
-    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.esencias-grid ul {
+    list-style: none;
+}
+
+.extra-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Footer y QR */
+.footer {
+    margin-top: 30px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.qr-section {
+    text-align: center;
+}
+
+.qr-placeholder {
+    width: 60px;
+    height: 60px;
+    border: 2px solid #000;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 380px) {
+    h1 { font-size: 2.5rem; }
+    td { font-size: 0.75rem; }
 }
