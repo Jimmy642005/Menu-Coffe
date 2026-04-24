@@ -1,4 +1,4 @@
-/* 1. RESET CRUCIAL */
+/* 1. RESET PARA CONTROL TOTAL */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -7,28 +7,27 @@
 
 body {
     background-color: #d1c1a8;
-    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Montserrat', sans-serif;
-    padding: 15px;
+    padding: 10px;
 }
 
-/* 2. EL PAPEL (CONTENEDOR) */
+/* 2. CONTENEDOR PRINCIPAL FLEXIBLE */
 .menu-page {
     background-color: #e6d8c1;
     width: 100%;
-    max-width: 380px; /* Tamaño ideal para celular */
-    padding: 20px;
+    max-width: 360px; /* Tamaño ideal para cualquier celular */
+    padding: 15px;
     border: 1px solid #c5b59a;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .inner-border {
     border: 2px solid #2c2c2c;
     padding: 15px;
+    width: 100%;
 }
 
 /* 3. CABECERA */
@@ -43,88 +42,85 @@ h1 {
     color: white;
     text-shadow: 2px 2px 0 #2c2c2c;
     letter-spacing: 5px;
-    text-transform: uppercase;
 }
 
-.tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1rem;
-    margin-top: -5px;
-}
-
-/* 4. LA TABLA (COMPACTA Y SEGURA) */
+/* 4. LA TABLA (EL ARREGLO REAL) */
 .menu-table {
     width: 100%;
     border-collapse: collapse;
+    table-layout: fixed; /* OBLIGA a respetar los anchos que daremos */
 }
 
-/* Ajuste de encabezados de precios para que no ocupen tanto ancho */
-.category-header th, .size-header th {
-    font-size: 0.65rem;
+/* Definimos anchos específicos para que nada se salga */
+.menu-table th:nth-child(1), 
+.menu-table td:nth-child(1) { width: 45%; } /* Nombre */
+.menu-table th:nth-child(2), 
+.menu-table td:nth-child(2) { width: 18%; } /* Hot 12 */
+.menu-table th:nth-child(3), 
+.menu-table td:nth-child(3) { width: 18%; } /* Hot 16 */
+.menu-table th:nth-child(4), 
+.menu-table td:nth-child(4) { width: 19%; } /* Frio 16 */
+
+/* Encabezados muy pequeños para que quepan */
+.menu-table th {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.55rem; /* Reducido para que no empuje */
     text-align: right;
+    vertical-align: bottom;
     padding-bottom: 5px;
-    line-height: 1;
+    text-transform: uppercase;
 }
 
 .item-row td {
     padding: 8px 0;
-    vertical-align: bottom;
+    font-size: 0.75rem;
 }
 
-/* El nombre y los puntos */
+/* Nombre con puntos que NO empujan */
 .item-name {
     font-family: 'Special Elite', cursive;
-    font-size: 0.8rem; /* Tamaño optimizado */
     display: flex;
-    align-items: baseline;
-    white-space: nowrap;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 .item-name::after {
-    flex-grow: 1;
-    margin-left: 4px;
-    opacity: 0.3;
-    overflow: hidden;
+    content: "...................................................";
+    opacity: 0.2;
+    margin-left: 3px;
 }
 
-/* Precios individuales */
+/* Precios alineados */
 .price {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    font-size: 0.75rem;
     text-align: right;
-    width: 35px; /* Ancho fijo pequeño para que no empujen */
-    padding-left: 4px;
+    font-weight: bold;
 }
 
-/* 5. SECCIÓN DE EXTRAS */
+/* 5. SECCIÓN DE EXTRAS ADAPTADA */
 .extras-section {
     margin-top: 30px;
     text-align: center;
+    font-family: 'Special Elite', cursive;
 }
 
 .extras-section h3 {
-    font-size: 1rem;
-    letter-spacing: 3px;
-    border-bottom: 2px solid #2c2c2c;
-    display: inline-block;
+    border-bottom: 1.5px solid #2c2c2c;
     margin-bottom: 10px;
+    font-size: 1rem;
+    display: inline-block;
 }
 
 .esencias-list {
-    font-family: 'Special Elite', cursive;
-    font-size: 0.7rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 8px;
+    gap: 5px;
+    font-size: 0.65rem;
     margin-bottom: 15px;
 }
 
 .extras-prices {
-    font-family: 'Special Elite', cursive;
-    font-size: 0.85rem;
-    line-height: 1.6;
+    font-size: 0.8rem;
+    line-height: 1.8;
 }
