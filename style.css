@@ -1,71 +1,131 @@
-/* 1. RESET Y CENTRADO DE PÁGINA */
+/* 1. RESET CRUCIAL */
 * {
-    box-sizing: border-box; /* Evita que el padding ensanche los cuadros */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    margin: 0;
-    padding: 10px; /* Espacio mínimo en las orillas del celular */
     background-color: #d1c1a8;
     background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
     display: flex;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center;     /* Centra verticalmente si hay espacio */
+    justify-content: center;
+    align-items: center;
     min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    padding: 15px;
 }
 
 /* 2. EL PAPEL (CONTENEDOR) */
 .menu-page {
     background-color: #e6d8c1;
     width: 100%;
-    max-width: 400px; /* Ancho ideal para una pantalla de celular */
+    max-width: 380px; /* Tamaño ideal para celular */
     padding: 20px;
-    position: relative;
     border: 1px solid #c5b59a;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* 3. MARCO INTERIOR */
 .inner-border {
     border: 2px solid #2c2c2c;
     padding: 15px;
-    width: 100%;
 }
 
-/* AJUSTE DE LA TABLA - VERSIÓN DINÁMICA */
+/* 3. CABECERA */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: white;
+    text-shadow: 2px 2px 0 #2c2c2c;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+
+.tagline {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1rem;
+    margin-top: -5px;
+}
+
+/* 4. LA TABLA (COMPACTA Y SEGURA) */
 .menu-table {
     width: 100%;
     border-collapse: collapse;
-    /* Quitamos el table-layout: fixed para que el texto mande */
+}
+
+/* Ajuste de encabezados de precios para que no ocupen tanto ancho */
+.category-header th, .size-header th {
+    font-size: 0.65rem;
+    text-align: right;
+    padding-bottom: 5px;
+    line-height: 1;
 }
 
 .item-row td {
     padding: 8px 0;
+    vertical-align: bottom;
 }
 
+/* El nombre y los puntos */
 .item-name {
     font-family: 'Special Elite', cursive;
-    font-size: 0.85rem;
-    text-align: left;
-    display: flex; /* Usamos flex para que los puntos llenen el hueco */
+    font-size: 0.8rem; /* Tamaño optimizado */
+    display: flex;
     align-items: baseline;
-    white-space: nowrap; /* Mantiene el nombre en una sola línea */
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-/* Los puntos ahora crecen según el espacio disponible */
 .item-name::after {
     content: " .................................................................";
-    flex-grow: 1; /* Esto hace que los puntos ocupen TODO el espacio libre */
-    margin-right: 5px;
+    flex-grow: 1;
+    margin-left: 4px;
     opacity: 0.3;
-    overflow: hidden; /* Corta los puntos sobrantes */
+    overflow: hidden;
 }
 
-/* Precios: ajustamos el ancho para que siempre quepan */
+/* Precios individuales */
 .price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
     text-align: right;
-    font-size: 0.8rem;
-    font-weight: bold;
-    padding-left: 8px;
-    white-space: nowrap; /* Evita que el precio se rompa en dos líneas */
+    width: 35px; /* Ancho fijo pequeño para que no empujen */
+    padding-left: 4px;
+}
+
+/* 5. SECCIÓN DE EXTRAS */
+.extras-section {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.extras-section h3 {
+    font-size: 1rem;
+    letter-spacing: 3px;
+    border-bottom: 2px solid #2c2c2c;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.esencias-list {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.extras-prices {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.85rem;
+    line-height: 1.6;
 }
