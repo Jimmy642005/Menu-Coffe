@@ -1,181 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Special+Elite&family=Montserrat:wght@300;600&display=swap');
-
-
-
-:root {
-    --bg-color: #e6d8c1;
-    --ink-color: #2c2c2c;
-    --accent-color: #8b5e83;
+/* 1. RESET Y CENTRADO DE PÁGINA */
+* {
+    box-sizing: border-box; /* Evita que el padding ensanche los cuadros */
 }
 
 body {
-    background-color: #d1c1a8; /* Un tono más oscuro para resaltar el papel */
-    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png"); /* Textura de papel */
-    display: flex;
-    justify-content: center;
-    padding: 50px 20px;
     margin: 0;
+    padding: 10px; /* Espacio mínimo en las orillas del celular */
+    background-color: #d1c1a8;
+    background-image: url("https://www.transparenttextures.com/patterns/paper-fibers.png");
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;     /* Centra verticalmente si hay espacio */
+    min-height: 100vh;
 }
 
-/* El Contenedor del Menú (La Hoja) */
-.menu-container {
-    background-color: var(--bg-color);
-    max-width: 700px;
+/* 2. EL PAPEL (CONTENEDOR) */
+.menu-page {
+    background-color: #e6d8c1;
     width: 100%;
-    padding: 60px;
-    box-shadow: 15px 15px 30px rgba(0,0,0,0.2);
+    max-width: 400px; /* Ancho ideal para una pantalla de celular */
+    padding: 20px;
     position: relative;
     border: 1px solid #c5b59a;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-/* El Marco Interior de la imagen */
-.menu-container::after {
-    content: "";
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 2px solid var(--ink-color);
-    pointer-events: none;
+/* 3. MARCO INTERIOR */
+.inner-border {
+    border: 2px solid #2c2c2c;
+    padding: 15px;
+    width: 100%;
 }
 
-/* Encabezado Estilo Vintage */
-header {
+/* 4. AJUSTE DE LA TABLA (EL CORAZÓN DEL PROBLEMA) */
+.menu-table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed; /* Fuerza a la tabla a no salirse del cuadro */
+}
+
+/* Nombres de los cafés */
+.item-name {
+    font-family: 'Special Elite', cursive;
+    font-size: 0.85rem;
+    width: 55%; /* Le damos espacio para los puntos */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: clip;
+}
+
+.item-name::after {
+    content: " .................................................";
+    opacity: 0.3;
+}
+
+/* Precios: los hacemos más compactos */
+.price {
+    text-align: right;
+    font-size: 0.85rem;
+    width: 15%; /* Cada columna de precio ocupa un 15% */
+    font-weight: bold;
+}
+
+/* 5. TÍTULOS ADAPTABLES */
+h1 {
+    font-size: 3rem; /* Más pequeño para que no rompa la línea */
     text-align: center;
-    margin-bottom: 50px;
-}
-
-header h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 5rem;
-    margin: 0;
-    letter-spacing: 12px;
-    color: #fff; /* Blanco como en la imagen */
-    text-shadow: 2px 2px 0px var(--ink-color);
-    text-transform: uppercase;
+    margin: 10px 0;
+    letter-spacing: 5px;
 }
 
 .tagline {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.5rem;
-    color: var(--ink-color);
-    margin-top: -10px;
-}
-
-/* Estilo de la Tabla */
-.menu-table {
-    width: 100%;
-    font-size: 0.85rem;
-    border-collapse: collapse;
-    font-family: 'Montserrat', sans-serif;
-    color: var(--ink-color);
-}
-
-.menu-table th {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
-    letter-spacing: 2px;
-    padding-bottom: 15px;
-}
-
-.item-name {
-    font-family: 'Special Elite', cursive; /* Estilo máquina de escribir */
-    font-size: 0.9rem;
-    text-align: left;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-/* Puntos conectores */
-.item-name::after {
-    content: "------------------------";
-    letter-spacing: 4px;
-    opacity: 0.5;
-}
-
-.price {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 300;
-    text-align: right;
-    padding-left: 15px;
-    width: 60px;
-}
-
-/* Sección de Extras */
-.extras {
-    margin-top: 50px;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 20px;
 }
 
-.extras h3 {
-    letter-spacing: 5px;
-    border-bottom: 2px solid var(--ink-color);
-    display: inline-block;
-    padding: 0 30px 5px;
+/* 6. EXTRAS */
+.extras-section h3 {
+    font-size: 1rem;
+    display: block;
+    text-align: center;
 }
 
-.extras-list {
-    font-family: 'Special Elite', cursive;
-    margin-top: 15px;
-    line-height: 1.8;
-}
-
-/* Detalles decorativos (Flores) */
-.flower {
-    position: absolute;
-    width: 60px;
-    opacity: 0.7;
-    z-index: 10;
-}
-
-.top-left { top: -10px; left: -10px; transform: rotate(-15deg); }
-
-@media(max-width: 480px){
-    .menu-page{
-padding: 20px 10px;
-
-    }
-    .inner-border{
-        padding: 10px;
-    }
-}
-.logo-circle{
-    width: 80px;
-    height: 80px;
-    font-size: 0.6rem;
-}
-h1{
-    font-family: 'Playfair Display' serif;
-    font-size: 12vw;
-    max-font-size: 4rem;
-    margin: 0;
-    letter-spacing: 5px;
-    color: white;
-    text-shadow: 2px 2px 0 var(--link);
-}
-.price{
-    padding-left: 5px;
-    min-width: 40px;
-}
-.esencias-list{
-    grid-template-columns: 1fr;
-    text-align: left;
-    
-}
-
-.menu-page{
-    background-color: var(--bg-paper);
-    width: 95%;
-    max-width: 650px;
-    padding: 30px 50px;
-    position: relative;
-    box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
-}
-.inner-border{
-    border: 2px solid var(--link);
-    padding: 15px;
-    box-sizing: border-box;
+.esencias-list {
+    display: flex;
+    flex-wrap: wrap; /* Si no caben, bajan a la siguiente línea */
+    justify-content: center;
+    gap: 10px;
+    font-size: 0.75rem;
+    margin-bottom: 15px;
 }
