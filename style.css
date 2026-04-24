@@ -36,15 +36,13 @@ body {
 .menu-table {
     width: 100%;
     border-collapse: collapse;
-    table-layout: fixed; /* Fuerza a la tabla a no salirse del cuadro */
+   
 }
 
 /* Nombres de los cafés */
 .item-name {
     font-family: 'Special Elite', cursive;
     font-size: 0.85rem;
-    width: 55%; /* Le damos espacio para los puntos */
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: clip;
 }
